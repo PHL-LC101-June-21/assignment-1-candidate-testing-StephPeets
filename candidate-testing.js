@@ -19,7 +19,7 @@ let correctAnswers = [
 
 
 function askForName() {
-	candidateName = input.question("What is your name?\n")
+	candidateName = input.question("Candidate Name: ")
 }
 
 function askQuestion() {
