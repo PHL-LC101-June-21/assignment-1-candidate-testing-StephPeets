@@ -6,10 +6,10 @@ let candidateAnswer = [];
 let candidateAnswers = 0;
 let questions = [
   /*0*/	"Who was the first American woman in space?\nYour Answer: ", 
-  /*1*/	"True or false: 5 kilometer == 5000 meters?\nYour Answer:",
-  /*2*/	"(5 + 3)/2 * 10 = ?\nYour Answer:", 
-  /*3*/	"Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2?\nYour Answer:", 
-  /*4*/	"What is the minimum crew size for the ISS?\nYour Answer:"];
+  /*1*/	"True or false: 5 kilometer == 5000 meters?\nYour Answer: ",
+  /*2*/	"(5 + 3)/2 * 10 = ?\nYour Answer: ", 
+  /*3*/	"Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2?\nYour Answer: ", 
+  /*4*/	"What is the minimum crew size for the ISS?\nYour Answer: "];
 let correctAnswers = [
   /*0*/ 	"Sally Ride",
   /*1*/ 	"true",
