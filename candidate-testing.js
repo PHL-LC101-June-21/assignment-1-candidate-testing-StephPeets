@@ -1,21 +1,21 @@
 const input = require('readline-sync');
-let question;
-let correctAnswer;
+let question = "Who was the first American woman in space? ";
+let correctAnswer = "Sally Ride";
 let candidateName = "";
-let candidateAnswer = [];
-let candidateAnswers = 0;
+let candidateAnswers = [];
+let candidateAnswer = "0";
 let questions = [
-  /*0*/	"Who was the first American woman in space?\nYour Answer: ", 
-  /*1*/	"True or false: 5 kilometer == 5000 meters?\nYour Answer: ",
-  /*2*/	"(5 + 3)/2 * 10 = ?\nYour Answer: ", 
-  /*3*/	"Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2?\nYour Answer: ", 
-  /*4*/	"What is the minimum crew size for the ISS?\nYour Answer: "];
+  "Who was the first American woman in space? ", 
+  "True or false: 5 kilometer == 5000 meters? ",
+  "(5 + 3)/2 * 10 = ? ", 
+  "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", 
+  "What is the minimum crew size for the ISS? "];
 let correctAnswers = [
-  /*0*/ 	"Sally Ride",
-  /*1*/ 	"true",
-  /*2*/ 	"40",
-  /*3*/ 	"Trajectory",
-  /*4*/ 	"3"];
+  "Sally Ride",
+  "true",
+  "40",
+  "Trajectory",
+  "3"];
 
 
 function askForName() {
@@ -24,28 +24,27 @@ function askForName() {
 
 function askQuestion() {
 	for (let i = 0; i < questions.length; i++) {
-		candidateAnswer[i] = input.question(questions[i]);
+		console.log(questions[i])
+		candidateAnswers[i] = input.question(`Your Answer: `);
     console.log(`Correct Answer: ${correctAnswers[i]}\n`)
 	}
 }
 
 function gradeQuiz(candidateAnswers) {
-  for (let i = 0; i < candidateAnswer.length; i++) {
-    if (candidateAnswer[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
-      candidateAnswers++;
+  let grade;
+	for (let i = 0; i < candidateAnswers.length; i++) {
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+      candidateAnswer++;
 		}
   }
-  let grade = Number(candidateAnswers/questions.length*100);
-	console.log(typeof grade)
-  console.log(`>>> Overall Grade: ${grade}% (${candidateAnswers} of 5 responses correct) <<<`)
+ 	grade = Number(candidateAnswer/questions.length*100);  
+  console.log(`>>> Overall Grade: ${grade}% (${candidateAnswer} of 5 responses correct) <<<`)
   if (grade >= 80) {
     console.log(`>>> Status: PASSED <<<`)
   } else {
     console.log(`>>> Status: FAILED <<<`)
   }
-
   return grade;
-
 	}
 
 function runProgram() {
@@ -61,7 +60,7 @@ module.exports = {
   candidateName: candidateName,
   question: question,
   correctAnswer: correctAnswer,
-  candidateAnswer: candidateAnswer,
+  candidateAnswers: candidateAnswers,
   questions: questions,
   correctAnswers: correctAnswers,
   candidateAnswers: candidateAnswers,
