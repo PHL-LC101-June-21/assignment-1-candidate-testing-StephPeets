@@ -26,8 +26,7 @@ function askForName() {
 function askQuestion() {
 	for (let i = 0; i < questions.length; i++) {
 		console.log(questions[i])
-		candidateAnswer = input.question(`Your Answer: `);
-		candidateAnswers[i] = candidateAnswer;
+		candidateAnswers[i] = input.question(`Your Answer: `);
     console.log(`Correct Answer: ${correctAnswers[i]}\n`)
 	}
 }
@@ -40,7 +39,7 @@ function gradeQuiz(candidateAnswers) {
 		}
   }
 	candidateAnswer = grade.toString();
- 	grade = Number(grade/questions.length*100);  
+ 	grade = grade/questions.length*100;  
   console.log(`>>> Overall Grade: ${grade}% (${candidateAnswer} of 5 responses correct) <<<`)
   if (grade >= 80) {
     console.log(`>>> Status: PASSED <<<`)
@@ -65,7 +64,7 @@ module.exports = {
   candidateAnswers: candidateAnswers,
   questions: questions,
   correctAnswers: correctAnswers,
-  candidateAnswers: candidateAnswers,
+  candidateAnswer: candidateAnswer,
   gradeQuiz: gradeQuiz,
   runProgram: runProgram
 };
