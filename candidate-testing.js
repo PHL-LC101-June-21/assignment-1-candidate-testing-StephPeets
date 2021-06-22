@@ -3,7 +3,7 @@ let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
 let candidateName = "";
 let candidateAnswers = [];
-let candidateAnswer = "0";
+let candidateAnswer = "";
 let questions = [
   "Who was the first American woman in space? ", 
   "True or false: 5 kilometer == 5000 meters? ",
@@ -20,24 +20,27 @@ let correctAnswers = [
 
 function askForName() {
 	candidateName = input.question("Candidate Name: ")
+	console.log(`Hi, ${candidateName}. It's Quiz Time!\n`)
 }
 
 function askQuestion() {
 	for (let i = 0; i < questions.length; i++) {
 		console.log(questions[i])
-		candidateAnswers[i] = input.question(`Your Answer: `);
+		candidateAnswer = input.question(`Your Answer: `);
+		candidateAnswers[i] = candidateAnswer;
     console.log(`Correct Answer: ${correctAnswers[i]}\n`)
 	}
 }
 
 function gradeQuiz(candidateAnswers) {
-  let grade;
+	let grade = 0;
 	for (let i = 0; i < candidateAnswers.length; i++) {
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
-      candidateAnswer++;
+      grade++;
 		}
   }
- 	grade = Number(candidateAnswer/questions.length*100);  
+	candidateAnswer = grade.toString();
+ 	grade = Number(grade/questions.length*100);  
   console.log(`>>> Overall Grade: ${grade}% (${candidateAnswer} of 5 responses correct) <<<`)
   if (grade >= 80) {
     console.log(`>>> Status: PASSED <<<`)
@@ -49,7 +52,6 @@ function gradeQuiz(candidateAnswers) {
 
 function runProgram() {
   askForName();
-  console.log(`Hi, ${candidateName}. It's Quiz Time!\n`)
   askQuestion();
   gradeQuiz(candidateAnswers);
 }
