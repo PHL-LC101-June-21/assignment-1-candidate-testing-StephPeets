@@ -17,20 +17,11 @@ let correctAnswers = [
   "3"];
 let candidateAnswer = "";
 let candidateAnswers = [];
-let consoleTest = "";
-
-// = `Correct Answer: ${correctAnswers[i]}\n`;
 
 function askForName() {
 	candidateName = input.question("Candidate Name: ")
 	return console.log(`Hi, ${candidateName}. It's Quiz Time!\n`);
 }
-
-
-// 10.4.1.1. Returning a Value states:
-	// Now that we have return statements in our coding toolbox, we will very rarely print anything within a function. If we want to see the value returned by a function then we must print it after calling the function.
-
-/***	Is it possible to do this assignment without using console.log?	***/
 
 function askQuestion() {
 	for (let i = 0; i < questions.length; i++) {
